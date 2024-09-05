@@ -5,7 +5,6 @@ import { InlineWidget } from "react-calendly";
 
 const Page = () => (
     <>
-        <ResponsiveAppBar />
         <div className="container">
             <InlineWidget url="https://calendly.com/lovely-studio" />
         </div>

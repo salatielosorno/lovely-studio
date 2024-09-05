@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Rufina } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import { ResponsiveAppBar } from "@/components/AppBar";
 
 const inter = Rufina({ weight: "400", subsets: ["latin"] });
 
@@ -40,7 +39,7 @@ export default function RootLayout({
         <meta property="og:site_name" content="Lovely Studio" />
         <meta name="twitter:image:alt" content="Salón de belleza y peluquería" />
       </Head>
-      <body className={`${inter.className} text-lsblack`}>
+      <body className={`${inter.className} text-lsblack`} id="rootNode">
         {children}
       </body>
     </html>
