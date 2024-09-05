@@ -1,13 +1,34 @@
 'use client'
 
-import { InlineWidget } from "react-calendly";
+import { ResponsiveAppBar } from "@/components/AppBar";
+import { Button } from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
+
+import lovelyBanner from '../../public/images/banner-lovely.svg'
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-
-    <div className="container">
-      <InlineWidget url="https://calendly.com/lovely-studio" />
-    </div>
+    <>
+      <ResponsiveAppBar />
+      <main className="flex flex-col items-center justify-between">
+        <div className="md:container md:mx-auto">
+          <Image className="w-full" src={lovelyBanner} alt="Salón de belleza" />
+        </div>
+        <div className="md:container md:mx-auto">
+          <div className="z-10 w-full max-w-5xl items-center justify-between text-sm lg:flex text-center">
+            <h2 className="p-10 flex w-full justify-center text-center font-bold text-4xl">
+              La belleza y el éxito comienzan aquí.
+            </h2>
+            <Button style={{ backgroundColor: "#263a41" }} variant="contained" LinkComponent={Link} href="/appointment">
+              Agendar cita
+            </Button>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
 
