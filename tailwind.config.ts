@@ -15,7 +15,7 @@ const config: Config = {
       },
       colors: {
         lspink: "#fff9f8",
-        lsblack: "#263a41",
+        lsblack: "#383838",
         lsgray: "#888888"
       }
     },
