@@ -13,7 +13,7 @@ const Footer = () => (
             </a>
             {/* <div className="chat-support__icon"></div> */}
         </div>
-        <div className="md:container md:mx-auto text-center text-[12px] pt-10">
+        <div className="md:container md:mx-auto text-center text-[12px] pt-10 relative">
             <Link underline="always" href="/terms-and-conditions">Términos y condiciones</Link>
         </div>
         <div className="md:container md:mx-auto text-center text-[12px] pt-2 pb-5">
