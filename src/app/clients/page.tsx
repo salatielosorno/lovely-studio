@@ -1,10 +1,12 @@
 'use client'
 
-import { Footer } from "@/components/Footer";
-import { Box, Container, Grid, Typography } from "@mui/material";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-const Page = () => {
+import { Box, Container, Grid, Typography } from "@mui/material";
+import { Footer } from "@/components/Footer";
+
+const Clients = () => {
     const searchParams = useSearchParams()
     const cid = searchParams.get('cid')
 
@@ -24,6 +26,14 @@ const Page = () => {
             </Box>
             <Footer />
         </>
+    )
+}
+
+const Page = () => {
+    return (
+        <Suspense>
+            <Clients />
+        </Suspense>
     )
 }
 
