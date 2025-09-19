@@ -1,40 +1,32 @@
 'use client'
+import { CssBaseline, ThemeProvider } from "@mui/material";
 
-import Image from "next/image";
-import Link from "next/link";
-
-import { Button } from "@mui/material";
-
-import { PopupButton } from "react-calendly";
-
-import { Footer } from "@/components/Footer";
+//import { Footer } from "@/components/Footer";
 
 import lovelyBanner from '../../public/images/banner-lovely.svg'
+import theme from "../../theme";
+import Header from "@/components/v2/Header";
+import Hero from "@/components/v2/Hero";
+import Services from "@/components/v2/Services";
+import About from "@/components/v2/About";
+import Gallery from "@/components/v2/Gallery";
+import Contact from "@/components/v2/Contact";
+import Footer from "@/components/v2/Footer";
+import WhatsAppButton from "@/components/v2/WhatsappButton";
 
 export default function Home() {
   return (
-    <>
-      <main className="flex flex-col items-center justify-between">
-        <div className="md:container md:mx-auto">
-          <Image className="w-full" src={lovelyBanner} alt="Salón de belleza" />
-        </div>
-        <div className="md:container md:mx-auto">
-          <div className="z-10 w-full max-w-5xl items-center justify-between text-sm lg:flex text-center">
-            <h2 className="p-10 flex w-full justify-center text-center font-bold text-4xl">
-              La belleza y el éxito comienzan aquí.
-            </h2>
-            <PopupButton
-              url="https://calendly.com/lovely-studio"
-              rootElement={(typeof window !== "undefined" ? document.getElementById("rootNode") : null)!}
-              text="Agendar cita"
-              className="bg-lsblack hover:bg-lsblack text-white py-2 px-4 rounded uppercase"
-              styles={{fontFamily:'revert'}}
-            />
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
+    <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Header />
+        <Hero />
+        <Services />
+        {/* <About /> */}
+        <Gallery />
+        <Contact />
+        <Footer />
+        <WhatsAppButton />
+    </ThemeProvider>
   );
 }
 
