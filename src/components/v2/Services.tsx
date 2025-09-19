@@ -57,7 +57,7 @@ const services = [
 const Services = () => {
   return (
     <Box id="services" sx={{ py: 8, px: 2, bgcolor: '#E5E4E4', color: '#181818' }}>
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h4" align="center" gutterBottom sx={{ pb:4 }}>
         Servicios
       </Typography>
 
