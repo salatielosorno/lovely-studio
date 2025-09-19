@@ -56,12 +56,9 @@ const services = [
 
 const Services = () => {
   return (
-    <Box id="services" sx={{ py: 8, px: 2, bgcolor: '#fefefe' }}>
+    <Box id="services" sx={{ py: 8, px: 2, bgcolor: '#E5E4E4', color: '#181818' }}>
       <Typography variant="h4" align="center" gutterBottom>
-        Nuestros Servicios
-      </Typography>
-      <Typography variant="body1" align="center" sx={{ mb: 4 }}>
-        Elige el tratamiento que más se adapte a ti:
+        Servicios
       </Typography>
 
       <Grid container spacing={4} justifyContent="center">

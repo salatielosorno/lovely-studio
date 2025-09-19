@@ -1,18 +1,14 @@
 'use client'
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
-//import { Footer } from "@/components/Footer";
-
-import lovelyBanner from '../../public/images/banner-lovely.svg'
 import theme from "../../theme";
 import Header from "@/components/v2/Header";
 import Hero from "@/components/v2/Hero";
 import Services from "@/components/v2/Services";
-import About from "@/components/v2/About";
 import Gallery from "@/components/v2/Gallery";
 import Contact from "@/components/v2/Contact";
 import Footer from "@/components/v2/Footer";
-import WhatsAppButton from "@/components/v2/WhatsappButton";
+import WhatsAppButton from "@/components/v2/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -20,6 +16,7 @@ export default function Home() {
         <CssBaseline />
         <Header />
         <Hero />
+        <br/>
         <Services />
         {/* <About /> */}
         <Gallery />
