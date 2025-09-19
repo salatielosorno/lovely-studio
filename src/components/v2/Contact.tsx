@@ -36,7 +36,7 @@ const Contact = () => {
             </Stack>
           </ListItem>
           {/* <ListItem>
-            <ListItemText secondaryTypographyProps={{color: 'white'}} primary="📧 Email" secondary="contacto@salonbellavida.com" />
+            <ListItemText secondaryTypographyProps={{color: 'white'}} primary="📧 Email" secondary="contacto@lovelystudio.mx" />
           </ListItem> */}
           {/* <ListItem>
             <ListItemText secondaryTypographyProps={{color: 'white'}} primary="📞 Teléfono" secondary="(225)-110-7907" />
