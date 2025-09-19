@@ -15,7 +15,7 @@ const Footer = () => {
       }}
     >
       <Typography variant="body2">
-        © {new Date().getFullYear()} Salón BellaVida. Todos los derechos reservados.
+        © {new Date().getFullYear()} Lovely Studio. Todos los derechos reservados.
       </Typography>
 
       <Box sx={{ mt: 2 }}>
