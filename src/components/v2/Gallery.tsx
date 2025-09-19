@@ -1,38 +1,48 @@
-// components/Gallery.jsx
-import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Box, Grid, Typography, styled } from '@mui/material';
 
-const GalleryImage = styled('img')(({ theme }) => ({
-  width: '100%',
-  height: 'auto',
-  borderRadius: theme.shape.borderRadius,
+const ImageGrid = styled('div')(({ theme }) => ({
+  columnCount: 1,
+  columnGap: theme.spacing(2),
+  [theme.breakpoints.up('sm')]: {
+    columnCount: 2,
+  },
+  [theme.breakpoints.up('md')]: {
+    columnCount: 3,
+  },
 }));
 
+const Img = styled('img')({
+  width: '100%',
+  height: 'auto',
+  marginBottom: '16px',
+  borderRadius: 8,
+  display: 'block',
+  breakInside: 'avoid',
+});
+
 const images = [
-  '/images/gallery1.jpg',
-  '/images/gallery2.jpg',
-  '/images/gallery3.jpg',
-  '/images/gallery4.jpg',
+  '/images/cabello-galeria.jpg',
+  '/images/unas-galeria.jpg',
+  '/images/maquillaje-galeria.jpg',
+  '/images/unas-galeria-2.jpg',
 ];
 
-const Gallery = () => {
+export default function Gallery() {
   return (
-    <Box id="gallery" sx={{ py: 8 }}>
-      <div className="md:container md:mx-auto">
-        <Typography variant="h4" align="center" gutterBottom>
-          Galería
-        </Typography>
-        <Grid container spacing={2} justifyContent="center" maxWidth="md" mx="auto">
-          {images.map((src, idx) => (
-            <Grid item xs={12} sm={6} md={3} key={idx}>
-              <GalleryImage src={src} alt={`Imagen ${idx + 1}`} />
-            </Grid>
-          ))}
-        </Grid>
-      </div>
+     <Box sx={{ px: 2, py: 6 }} id="gallery">
+      <Typography variant="h4" align="center" gutterBottom>
+        Galería
+      </Typography>
+      <Typography variant="body1" align="center" sx={{ mb: 4 }}>
+        Algunos de nuestros trabajos:
+      </Typography>
+      <Grid container spacing={2}>
+        {images.map((src, i) => (
+          <Grid item xs={12} sm={6} md={3} key={i}>
+            <Img src={src} alt={`Galería ${i + 1}`} loading="lazy" />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
-};
-
-export default Gallery;
+}

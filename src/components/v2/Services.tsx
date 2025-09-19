@@ -25,31 +25,31 @@ const services = [
   {
     title: 'Corte de cabello',
     description: 'Estilos modernos y clásicos para todas las edades.',
-    image: 'https://picsum.photos/id/1011/600/400',
+    image: '/images/corte.jpg',
     link: '#corte',
   },
   {
     title: 'Servicio de depilación',
     description: 'Métodos seguros y efectivos para una piel suave y libre de vello.',
-    image: 'https://picsum.photos/id/1015/600/400',
+    image: '/images/depilacion.jpg',
     link: '#depilacion',
   },
   {
     title: 'Manicure y Pedicure',
     description: 'Relájate mientras cuidamos tus manos y pies.',
-    image: 'https://picsum.photos/id/1018/600/400',
+    image: '/images/pedicure.jpg',
     link: '#manicure',
   },
   {
-    title: 'Maquillaje profesional',
+    title: 'Maquillaje',
     description: 'Para eventos especiales o sesiones fotográficas.',
-    image: 'https://picsum.photos/id/1027/600/400',
+    image: '/images/maquillaje.png',
     link: '#maquillaje',
   },
   {
     title: 'Aplicación de uñas y pestañas',
     description: 'Resalta la belleza de tu mirada y disfruta de unas uñas espectaculares gracias a nuestras técnicas profesionales y personalizadas.',
-    image: 'https://picsum.photos/id/1035/600/400',
+    image: '/images/unas.png',
     link: '#unas-pestanas',
   },
 ];
