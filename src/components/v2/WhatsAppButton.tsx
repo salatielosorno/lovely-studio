@@ -16,7 +16,7 @@ const FloatingButton = styled(Fab)(({ theme }) => ({
 }));
 
 const WhatsAppButton = () => {
-  const phoneNumber = '5212251107907'; // Reemplaza con tu número sin "+" ni espacios
+  const phoneNumber = '5212251038236'; // Reemplaza con tu número sin "+" ni espacios
 
   return (
     <FloatingButton

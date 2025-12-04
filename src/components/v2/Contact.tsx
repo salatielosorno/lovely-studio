@@ -5,7 +5,7 @@ import { Box, Typography, List, ListItem, ListItemText, Stack, Link } from '@mui
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Contact = () => {
-  const phoneNumber = '5212251107907';
+  const phoneNumber = '5212251038236';
 
   return (
     <Box id="contact" sx={{ py: 8, px: 2, bgcolor: '#E5E4E4', color: '#181818' }}>
