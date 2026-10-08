@@ -10,7 +10,7 @@ const Page = () => {
                         <Typography variant="h5" paragraph>
                             Términos y condiciones
                         </Typography>
-                        <Typography variant="body1">Última actualización 26 de agosto de 2025 | LovelyStudio</Typography>
+                        <Typography variant="body1">Última actualización 08 de septiembre de 2026 | LovelyStudio</Typography>
                     </Grid>
                 </Grid>
             </Container>
@@ -44,10 +44,10 @@ const Page = () => {
             <Typography variant="body1">Con respecto al agendamiento ya sea in-situ, por teléfono o mediante nuestra página web oficial, el cliente se deberá apegar a lo siguiente:</Typography>
             <List sx={{ listStyleType: 'disc' }}>
                 <ListItem sx={{ display: 'list-item' }}>
-                    - En caso de no poder asistir a su cita programada. El cliente deberá avisar con al menos 2 hrs de anticipación sobre la cancelación de la misma. En caso de no avisar quedará por entendido la asistencia en la hora y día acordado.
+                    - En caso de no poder asistir a su cita programada. El cliente deberá avisar con al menos 24 hrs de anticipación sobre la cancelación de la misma. En caso de no avisar quedará por entendido la asistencia en la hora y día acordado.
                 </ListItem>
                 <ListItem sx={{ display: 'list-item' }}>
-                    - En caso de requerir un cambio en su cita, se permitirá hacerlo por una única ocasión. La nueva fecha estará sujeta a la disponibilidad de ambas partes y deberá programarse dentro de los 7 días naturales posteriores a la fecha original.
+                    - En caso de requerir un cambio en su cita, este deberá notificarse con al menos 24 horas de anticipación y se permitirá por una única ocasión. La nueva fecha estará sujeta a la disponibilidad de ambas partes y deberá programarse dentro de los 7 días naturales posteriores a la fecha original.
                 </ListItem>
                 <ListItem sx={{ display: 'list-item' }}>
                     - El cliente deberá prestar atención y sujetarse a los puntos contenidos dentro de la sección <span style={{ fontWeight: 'bold' }}>Atención in-situ</span> en el momento de asistir a su cita.
@@ -69,6 +69,9 @@ const Page = () => {
                 </ListItem>
                 <ListItem sx={{ display: 'list-item' }}>
                     - En caso de que no se solicite un adelanto explícitamente al momento del agendamiento, quedará por entendido que el servicio en cuestión no entra dentro de la restricción del punto anterior.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item' }}>
+                    - Los anticipos no son reembolsables bajo ninguna circunstancia. No obstante, el cliente podrá solicitar la reprogramación de su cita por una única ocasión, siempre y cuando lo notifique con al menos 24 horas de anticipación; la nueva fecha quedará sujeta a disponibilidad y deberá agendarse dentro de los 7 días naturales posteriores a la fecha original. 
                 </ListItem>
             </List>
             <Typography variant="body1">Restricciones en servicios</Typography>
