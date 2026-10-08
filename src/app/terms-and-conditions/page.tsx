@@ -47,6 +47,9 @@ const Page = () => {
                     - En caso de no poder asistir a su cita programada. El cliente deberá avisar con al menos 2 hrs de anticipación sobre la cancelación de la misma. En caso de no avisar quedará por entendido la asistencia en la hora y día acordado.
                 </ListItem>
                 <ListItem sx={{ display: 'list-item' }}>
+                    - En caso de requerir un cambio en su cita, se permitirá hacerlo por una única ocasión. La nueva fecha estará sujeta a la disponibilidad de ambas partes y deberá programarse dentro de los 7 días naturales posteriores a la fecha original.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item' }}>
                     - El cliente deberá prestar atención y sujetarse a los puntos contenidos dentro de la sección <span style={{ fontWeight: 'bold' }}>Atención in-situ</span> en el momento de asistir a su cita.
                 </ListItem>
                 <ListItem sx={{ display: 'list-item' }}>
