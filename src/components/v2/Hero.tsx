@@ -1,7 +1,13 @@
-import HeroBanner from "./HeroBanner";
+import Image from "next/image";
 import BookButton from "./BookButton";
 import { whatsappLink } from "@/lib/site";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+
+const heroImages = [
+  { src: "/images/hero/maquillaje.jpg", alt: "Maquillaje profesional", cls: "row-span-2", pos: "50% 40%" },
+  { src: "/images/hero/corte.jpg", alt: "Corte de cabello con tijeras", cls: "", pos: "50% 50%" },
+  { src: "/images/hero/unas.jpg", alt: "Uñas francesas", cls: "", pos: "50% 60%" },
+];
 
 const highlights = ["Atención personalizada", "Productos profesionales", "Con cita previa"];
 
@@ -32,7 +38,21 @@ export default function Hero() {
           </ul>
         </div>
 
-        <HeroBanner className="mx-auto w-full max-w-xl overflow-hidden rounded-3xl lg:max-w-none" />
+        <div className="mx-auto grid aspect-[5/4] w-full max-w-md grid-cols-2 grid-rows-2 gap-3 sm:max-w-lg lg:max-w-none">
+          {heroImages.map((img) => (
+            <div key={img.src} className={`relative overflow-hidden rounded-3xl ${img.cls}`}>
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 280px, (min-width: 640px) 256px, 45vw"
+                className="object-cover"
+                style={{ objectPosition: img.pos }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
