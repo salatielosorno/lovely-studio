@@ -5,14 +5,15 @@ import { Drawer, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { navItems } from "@/lib/site";
-import { logoText } from "./logoPaths";
+import { logoArcs, logoText } from "./logoPaths";
 import ThemeToggle from "./ThemeToggle";
 import BookButton from "./BookButton";
 
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({ className = "h-16" }: { className?: string }) {
   return (
-    <Link href="/" aria-label="Lovely Studio, inicio" className={`inline-flex ${className}`}>
-      <svg viewBox="87 194 314 154" role="img" aria-hidden="true" className="h-11 w-auto" fill="currentColor">
+    <Link href="/" aria-label="Lovely Studio, inicio" className="inline-flex">
+      <svg viewBox="82 128 322 327" aria-hidden="true" className={`${className} w-auto`} fill="currentColor">
+        <path d={logoArcs} fillRule="evenodd" />
         <path d={logoText} />
       </svg>
     </Link>
@@ -90,7 +91,7 @@ export default function Header() {
       >
         <div className="flex h-full flex-col p-5">
           <div className="flex items-center justify-between">
-            <Logo />
+            <Logo className="h-20" />
             <IconButton aria-label="Cerrar menú" onClick={() => setOpen(false)} sx={{ color: "var(--ls-text)" }}>
               <CloseIcon />
             </IconButton>

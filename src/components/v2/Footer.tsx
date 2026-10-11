@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className="border-t border-ls-border bg-ls-surface pb-24 pt-12 md:pb-12">
     <div className="container-ls grid gap-10 md:grid-cols-3">
       <div className="flex flex-col items-center gap-3 text-center md:items-start md:text-left">
-        <Logo />
+        <Logo className="h-24" />
         <p className="max-w-xs text-sm text-ls-muted">{site.tagline}</p>
       </div>
       <nav aria-label="Pie de página" className="flex flex-col items-center gap-1 md:items-start">
