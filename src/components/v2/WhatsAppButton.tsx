@@ -1,33 +1,27 @@
-import React from 'react';
-import { Fab } from '@mui/material';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { styled } from '@mui/material/styles';
+'use client'
+import { Fab } from "@mui/material";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { whatsappLink } from "@/lib/site";
 
-const FloatingButton = styled(Fab)(({ theme }) => ({
-  position: 'fixed',
-  bottom: theme.spacing(3),
-  right: theme.spacing(3),
-  zIndex: 1000,
-  backgroundColor: '#25D366',
-  color: '#fff',
-  '&:hover': {
-    backgroundColor: '#1ebe5b',
-  },
-}));
-
-const WhatsAppButton = () => {
-  const phoneNumber = '5212251038236'; // Reemplaza con tu número sin "+" ni espacios
-
-  return (
-    <FloatingButton
-      href={`https://wa.me/${phoneNumber}`}
-      formTarget='_blank'
-      rel="noopener noreferrer"
-      aria-label="WhatsApp"
-    >
-      <WhatsAppIcon />
-    </FloatingButton>
-  );
-};
+const WhatsAppButton = () => (
+  <Fab
+    component="a"
+    href={whatsappLink()}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Escribir por WhatsApp"
+    sx={{
+      position: "fixed",
+      right: "max(16px, env(safe-area-inset-right))",
+      bottom: "max(16px, env(safe-area-inset-bottom))",
+      zIndex: 1000,
+      bgcolor: "#25D366",
+      color: "#fff",
+      "&:hover": { bgcolor: "#1ebe5b" },
+    }}
+  >
+    <WhatsAppIcon />
+  </Fab>
+);
 
 export default WhatsAppButton;

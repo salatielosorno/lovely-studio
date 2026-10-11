@@ -1,99 +1,115 @@
-// components/Header.jsx
-import React, { useState } from 'react';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Box,
-  Link,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { styled } from '@mui/material/styles';
+'use client'
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Drawer, IconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import { navItems } from "@/lib/site";
+import ThemeToggle from "./ThemeToggle";
+import BookButton from "./BookButton";
 
-const NavLink = styled(Link)(({ theme }) => ({
-  color: theme.palette.common.white,
-  marginLeft: theme.spacing(3),
-  textDecoration: 'none',
-  fontWeight: 500,
-  '&:hover': {
-    textDecoration: 'underline',
-  },
-}));
+export function Logo({ className = "" }: { className?: string }) {
+  return (
+    <Link href="/" aria-label="Lovely Studio, inicio" className={`flex flex-col items-center leading-none ${className}`}>
+      <span className="font-logo text-xl font-medium tracking-[0.4em] pl-[0.4em]">LOVELY</span>
+      <span className="mt-1.5 font-logo text-[0.55rem] font-medium tracking-[0.6em] pl-[0.6em] text-ls-accent-strong">STUDIO</span>
+    </Link>
+  );
+}
 
-const navItems = [
-  { label: 'Servicios', href: '#services' },
-  /* { label: 'Nosotros', href: '#about' }, */
-  { label: 'Galería', href: '#gallery' },
-  { label: 'Contacto', href: '#contact' },
-];
+export default function Header() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>("");
 
-const Header = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const toggleDrawer = (open:boolean) => () => {
-    setMobileOpen(open);
-  };
+  useEffect(() => {
+    const els = navItems.map((n) => document.getElementById(n.id)).filter(Boolean) as HTMLElement[];
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <>
-      <AppBar position="static" color="primary">
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography variant="h6" sx={{ fontWeight: 600 }}>
-            Lovely Studio
-          </Typography>
+    <header
+      className={`sticky top-0 z-[1100] border-b transition-colors ${
+        scrolled ? "border-ls-border bg-ls-bg/90 backdrop-blur" : "border-transparent bg-ls-bg"
+      }`}
+      style={{ height: "var(--ls-header-h)" }}
+    >
+      <div className="container-ls flex h-full items-center justify-between">
+        <Logo />
 
-          {/* Desktop nav */}
-          <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-            {navItems.map((item) => (
-              <NavLink key={item.href} href={item.href}>
-                {item.label}
-              </NavLink>
-            ))}
-          </Box>
+        <nav aria-label="Principal" className="hidden items-center gap-8 md:flex">
+          {navItems.map((n) => (
+            <a
+              key={n.id}
+              href={n.href}
+              aria-current={active === n.id ? "true" : undefined}
+              className={`py-2 text-sm font-medium transition-colors hover:text-ls-accent-strong ${
+                active === n.id ? "text-ls-accent-strong underline underline-offset-8 decoration-2" : ""
+              }`}
+            >
+              {n.label}
+            </a>
+          ))}
+        </nav>
 
-          {/* Mobile menu icon */}
+        <div className="flex items-center gap-1">
+          <ThemeToggle />
+          <div className="hidden md:block">
+            <BookButton className="btn btn-primary !min-h-[44px]" />
+          </div>
           <IconButton
-            color="inherit"
-            edge="end"
-            onClick={toggleDrawer(true)}
-            sx={{ display: { xs: 'block', md: 'none' } }}
+            aria-label="Abrir menú"
+            onClick={() => setOpen(true)}
+            sx={{ display: { md: "none" }, color: "var(--ls-text)", width: 44, height: 44 }}
           >
             <MenuIcon />
           </IconButton>
-        </Toolbar>
-      </AppBar>
+        </div>
+      </div>
 
-      {/* Drawer for mobile menu */}
       <Drawer
         anchor="right"
-        open={mobileOpen}
-        onClose={toggleDrawer(false)}
-        PaperProps={{
-          sx: { width: 250 },
-        }}
+        open={open}
+        onClose={() => setOpen(false)}
+        PaperProps={{ sx: { width: "min(86vw, 320px)", bgcolor: "var(--ls-bg)", backgroundImage: "none" } }}
       >
-        <List>
-          {navItems.map((item) => (
-            <ListItem key={item.href} disablePadding>
-              <ListItemButton
-                component="a"
-                href={item.href}
-                onClick={toggleDrawer(false)}
+        <div className="flex h-full flex-col p-5">
+          <div className="flex items-center justify-between">
+            <Logo />
+            <IconButton aria-label="Cerrar menú" onClick={() => setOpen(false)} sx={{ color: "var(--ls-text)" }}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <nav aria-label="Móvil" className="mt-8 flex flex-col">
+            {navItems.map((n) => (
+              <a
+                key={n.id}
+                href={n.href}
+                onClick={() => setOpen(false)}
+                className="border-b border-ls-border py-4 font-display text-2xl"
               >
-                <ListItemText primary={item.label} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+                {n.label}
+              </a>
+            ))}
+          </nav>
+          <div className="mt-auto" onClick={() => setOpen(false)}>
+            <BookButton className="btn btn-primary w-full" />
+          </div>
+        </div>
       </Drawer>
-    </>
+    </header>
   );
-};
-
-export default Header;
+}

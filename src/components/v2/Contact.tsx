@@ -1,50 +1,60 @@
-// components/Contact.jsx
-import React from 'react';
-import { Box, Typography, List, ListItem, ListItemText, Stack, Link } from '@mui/material';
+import PlaceOutlined from "@mui/icons-material/PlaceOutlined";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import ScheduleOutlined from "@mui/icons-material/ScheduleOutlined";
+import { fullAddress, mapsEmbedUrl, mapsLink, site, whatsappLink } from "@/lib/site";
 
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+const cardCls = "flex gap-4 rounded-2xl border border-ls-border bg-ls-surface p-5";
 
-const Contact = () => {
-  const phoneNumber = '5212251038236';
-
+export default function Contact() {
   return (
-    <Box id="contact" sx={{ py: 8, px: 2, bgcolor: '#E5E4E4', color: '#181818' }}>
-      <div className="md:container md:mx-auto">
-        <Typography variant="h4" align="center" gutterBottom>
-          Contacto
-        </Typography>
-        <Typography variant="body1" align="center">
-          Reserva tu cita o contáctanos para más información:
-        </Typography>
-        <List sx={{ maxWidth: 400, mx: 'auto', mt: 2 }}>
-          <ListItem>
-            <ListItemText secondaryTypographyProps={{ color: '#181818' }} primary="📍 Dirección" secondary="Valdez 909, entre mina y rayon, 93650 Tlapacoyan, Ver." />
-          </ListItem>
-          <ListItem>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <WhatsAppIcon color="success" />
-              <Link
-                href={`https://wa.me/${phoneNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                underline="hover"
-                variant="body1"
-                color='#181818'
-              >
-                Enviar mensaje por WhatsApp
-              </Link>
-            </Stack>
-          </ListItem>
-          {/* <ListItem>
-            <ListItemText secondaryTypographyProps={{color: 'white'}} primary="📧 Email" secondary="contacto@lovelystudio.mx" />
-          </ListItem> */}
-          {/* <ListItem>
-            <ListItemText secondaryTypographyProps={{color: 'white'}} primary="📞 Teléfono" secondary="(225)-110-7907" />
-          </ListItem> */}
-        </List>
+    <section id="contact" className="section bg-ls-alt">
+      <div className="container-ls">
+        <div className="mx-auto mb-10 max-w-xl text-center">
+          <p className="eyebrow">Visítanos</p>
+          <h2 className="section-title">Contacto</h2>
+          <p className="mt-3 text-ls-muted">Reserva tu cita o contáctanos para más información.</p>
+        </div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="flex flex-col gap-4">
+            <div className={cardCls}>
+              <PlaceOutlined className="text-ls-accent-strong" />
+              <div>
+                <h3 className="font-semibold">Dirección</h3>
+                <p className="text-sm text-ls-muted">{fullAddress}</p>
+                <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-[44px] items-center text-sm font-semibold text-ls-accent-strong hover:underline">
+                  Cómo llegar →
+                </a>
+              </div>
+            </div>
+            <div className={cardCls}>
+              <WhatsAppIcon className="text-ls-accent-strong" />
+              <div>
+                <h3 className="font-semibold">WhatsApp</h3>
+                <p className="text-sm text-ls-muted">{site.whatsappDisplay}</p>
+                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-[44px] items-center text-sm font-semibold text-ls-accent-strong hover:underline">
+                  Enviar mensaje →
+                </a>
+              </div>
+            </div>
+            <div className={cardCls}>
+              <ScheduleOutlined className="text-ls-accent-strong" />
+              <div>
+                <h3 className="font-semibold">Horario</h3>
+                <p className="text-sm text-ls-muted">{site.hours}</p>
+              </div>
+            </div>
+          </div>
+          <div className="min-h-[300px] overflow-hidden rounded-2xl border border-ls-border">
+            <iframe
+              title="Mapa de ubicación de Lovely Studio"
+              src={mapsEmbedUrl}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full min-h-[300px] w-full border-0"
+            />
+          </div>
+        </div>
       </div>
-    </Box>
+    </section>
   );
-};
-
-export default Contact;
+}

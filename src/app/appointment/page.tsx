@@ -1,15 +1,15 @@
-'use client'
-import { ResponsiveAppBar } from "@/components/AppBar";
-import { Footer } from "@/components/Footer";
-import { InlineWidget } from "react-calendly";
+import type { Metadata } from "next";
+import CalendlyInline from "./CalendlyInline";
 
-const Page = () => (
-    <>
-        <div className="container">
-            <InlineWidget url="https://calendly.com/lovely-studio" />
-        </div>
-        <Footer/>
-    </>
-)
+export const metadata: Metadata = { title: "Agendar cita" };
 
-export default Page;
+export default function Page() {
+  return (
+    <section className="section">
+      <div className="container-ls">
+        <h1 className="section-title mb-6 text-center">Agendar cita</h1>
+        <CalendlyInline />
+      </div>
+    </section>
+  );
+}

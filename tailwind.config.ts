@@ -6,18 +6,26 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: ["class", '[data-theme="dark"]'],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        display: ["var(--font-display)", "Georgia", "serif"],
+        logo: ["var(--font-logo)", "system-ui", "sans-serif"],
+        sans: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       colors: {
-        lspink: "#fff9f8",
-        lsblack: "#383838",
-        lsgray: "#888888"
-      }
+        ls: {
+          bg: "var(--ls-bg)",
+          surface: "var(--ls-surface)",
+          alt: "var(--ls-alt)",
+          text: "var(--ls-text)",
+          muted: "var(--ls-muted)",
+          accent: "var(--ls-accent)",
+          "accent-strong": "var(--ls-accent-strong)",
+          border: "var(--ls-border)",
+        },
+      },
     },
   },
   plugins: [],
