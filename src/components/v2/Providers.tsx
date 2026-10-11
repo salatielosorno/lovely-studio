@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from "react";
 import { CssBaseline, ThemeProvider, useColorScheme } from "@mui/material";
+import { BookingProvider } from "./BookButton";
 import theme from "../../../theme";
 
 // Keeps MUI's color scheme in sync with the `data-theme` attribute set by ThemeToggle.
@@ -22,7 +23,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
       <ThemeSync />
-      {children}
+      <BookingProvider>{children}</BookingProvider>
     </ThemeProvider>
   );
 }

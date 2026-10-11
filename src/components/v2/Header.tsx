@@ -91,7 +91,7 @@ export default function Header() {
       >
         <div className="flex h-full flex-col p-5">
           <div className="flex items-center justify-between">
-            <Logo className="h-20" />
+            <span className="font-display text-xl font-semibold">Menú</span>
             <IconButton aria-label="Cerrar menú" onClick={() => setOpen(false)} sx={{ color: "var(--ls-text)" }}>
               <CloseIcon />
             </IconButton>
@@ -108,8 +108,8 @@ export default function Header() {
               </a>
             ))}
           </nav>
-          <div className="mt-auto" onClick={() => setOpen(false)}>
-            <BookButton className="btn btn-primary w-full" />
+          <div className="mt-auto">
+            <BookButton className="btn btn-primary w-full" onClick={() => setOpen(false)} />
           </div>
         </div>
       </Drawer>
