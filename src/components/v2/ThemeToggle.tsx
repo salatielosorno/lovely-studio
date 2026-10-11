@@ -3,58 +3,32 @@ import { useEffect, useState } from "react";
 import { IconButton, Tooltip } from "@mui/material";
 import LightModeIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeIcon from "@mui/icons-material/DarkModeOutlined";
-import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightnessOutlined";
 
-type Pref = "system" | "light" | "dark";
-const order: Pref[] = ["system", "light", "dark"];
-const labels: Record<Pref, string> = {
-  system: "Tema: automático",
-  light: "Tema: claro",
-  dark: "Tema: oscuro",
-};
-
-function apply(pref: Pref) {
-  const dark =
-    pref === "dark" ||
-    (pref === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
-  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
-}
+type Mode = "light" | "dark";
 
 export default function ThemeToggle() {
-  const [pref, setPref] = useState<Pref>("system");
+  // The inline script in layout.tsx has already set data-theme (saved choice, or OS preference on first visit).
+  const [mode, setMode] = useState<Mode>("light");
 
   useEffect(() => {
-    let saved: Pref = "system";
-    try {
-      const v = localStorage.getItem("ls-theme");
-      if (v === "light" || v === "dark") saved = v;
-    } catch {}
-    setPref(saved);
+    setMode(document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
   }, []);
 
-  useEffect(() => {
-    if (pref !== "system") return;
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => apply("system");
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, [pref]);
-
-  const next = () => {
-    const n = order[(order.indexOf(pref) + 1) % order.length];
-    setPref(n);
-    apply(n);
+  const toggle = () => {
+    const next: Mode = mode === "dark" ? "light" : "dark";
+    setMode(next);
+    document.documentElement.setAttribute("data-theme", next);
     try {
-      if (n === "system") localStorage.removeItem("ls-theme");
-      else localStorage.setItem("ls-theme", n);
+      localStorage.setItem("ls-theme", next);
     } catch {}
   };
 
-  const Icon = pref === "light" ? LightModeIcon : pref === "dark" ? DarkModeIcon : SettingsBrightnessIcon;
+  const label = mode === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
+  const Icon = mode === "dark" ? LightModeIcon : DarkModeIcon;
 
   return (
-    <Tooltip title={labels[pref]}>
-      <IconButton onClick={next} aria-label={`${labels[pref]}. Cambiar tema`} sx={{ color: "var(--ls-text)", width: 44, height: 44 }}>
+    <Tooltip title={label}>
+      <IconButton onClick={toggle} aria-label={label} sx={{ color: "var(--ls-text)", width: 44, height: 44 }}>
         <Icon />
       </IconButton>
     </Tooltip>
