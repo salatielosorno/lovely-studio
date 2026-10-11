@@ -5,14 +5,16 @@ import { Drawer, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { navItems } from "@/lib/site";
+import { logoText } from "./logoPaths";
 import ThemeToggle from "./ThemeToggle";
 import BookButton from "./BookButton";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link href="/" aria-label="Lovely Studio, inicio" className={`flex flex-col items-center leading-none ${className}`}>
-      <span className="font-logo text-xl font-medium tracking-[0.4em] pl-[0.4em]">LOVELY</span>
-      <span className="mt-1.5 font-logo text-[0.55rem] font-medium tracking-[0.6em] pl-[0.6em] text-ls-accent-strong">STUDIO</span>
+    <Link href="/" aria-label="Lovely Studio, inicio" className={`inline-flex ${className}`}>
+      <svg viewBox="87 194 314 154" role="img" aria-hidden="true" className="h-11 w-auto" fill="currentColor">
+        <path d={logoText} />
+      </svg>
     </Link>
   );
 }

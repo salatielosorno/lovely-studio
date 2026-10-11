@@ -11,7 +11,6 @@ const config: Config = {
     extend: {
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
-        logo: ["var(--font-logo)", "system-ui", "sans-serif"],
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       colors: {

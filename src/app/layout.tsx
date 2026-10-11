@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Montserrat, Poppins } from "next/font/google";
+import { Cormorant_Garamond, Poppins } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/v2/Providers";
 import Header from "@/components/v2/Header";
@@ -11,12 +11,6 @@ const display = Cormorant_Garamond({
   weight: ["500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-display",
-  display: "swap",
-});
-const logo = Montserrat({
-  weight: ["500", "600"],
-  subsets: ["latin"],
-  variable: "--font-logo",
   display: "swap",
 });
 const body = Poppins({
@@ -78,7 +72,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" suppressHydrationWarning className={`${display.variable} ${body.variable} ${logo.variable}`}>
+    <html lang="es" suppressHydrationWarning className={`${display.variable} ${body.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

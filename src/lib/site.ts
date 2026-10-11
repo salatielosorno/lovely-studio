@@ -15,7 +15,7 @@ export const site = {
   whatsappDisplay: "225 103 8236",
   calendlyUrl: "https://calendly.com/lovely-studio",
   // TODO: confirm real opening hours and social links with the owner.
-  hours: "Lunes a sábado, con cita previa",
+  hours: "24 hrs todos los días de la semana, con cita previa",
   instagramUrl: "",
   facebookUrl: "",
 } as const;
