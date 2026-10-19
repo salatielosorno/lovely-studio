@@ -5,6 +5,7 @@ import Providers from "@/components/v2/Providers";
 import Header from "@/components/v2/Header";
 import Footer from "@/components/v2/Footer";
 import WhatsAppButton from "@/components/v2/WhatsAppButton";
+import GoogleAnalytics from "@/components/v2/GoogleAnalytics";
 import { site } from "@/lib/site";
 
 const display = Cormorant_Garamond({
@@ -90,6 +91,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Footer />
           <WhatsAppButton />
         </Providers>
+        <GoogleAnalytics />
       </body>
     </html>
   );
