@@ -45,7 +45,7 @@ const Page = () => (
             </ul>
             <h2>Anticipos</h2>
             <ul>
-                <li>Para citas de más de un servicio cuyo monto supere los $500.00 MXN (quinientos pesos mexicanos con cero centavos), se solicitará un <strong>anticipo del 50%</strong> sobre el valor total de los servicios.
+                <li>Para citas de servicio cuyo monto supere los $500.00 MXN (quinientos pesos mexicanos con cero centavos), se solicitará un <strong>anticipo del 50%</strong> sobre el valor total de los servicios.
                 </li>
                 <li>En caso de que no se solicite un adelanto explícitamente al momento del agendamiento, quedará por entendido que el servicio en cuestión no entra dentro de la restricción del punto anterior.
                 </li>
