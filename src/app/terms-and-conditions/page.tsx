@@ -9,7 +9,7 @@ const Page = () => (
   <article className="section">
     <header className="prose-ls mb-8">
       <h1 className="section-title">Términos y condiciones</h1>
-      <p className="mt-3 text-ls-muted">Última actualización 08 de septiembre de 2026 | Lovely Studio</p>
+      <p className="mt-3 text-ls-muted">Última actualización 02 de noviembre de 2026 | Lovely Studio</p>
     </header>
     <div className="prose-ls">
             <h2>Atención in-situ</h2>
@@ -62,6 +62,9 @@ const Page = () => (
                 </li>
             </ul>
             <p>Nos reservamos el derecho de admisión y suspensión del servicio ante la violación de cualquiera de los puntos arriba listados.</p>
+            <h2>Obsequios y propinas</h2>
+            <p>Nuestro personal <strong>no está autorizado a recibir obsequios de ningún tipo</strong>, incluyendo, de manera enunciativa más no limitativa, bebidas, alimentos, dulces, flores, regalos o cualquier otro presente.</p>
+            <p>Las <strong>propinas sí están permitidas</strong>, únicamente en efectivo o mediante los medios de pago disponibles en nuestras instalaciones, y son completamente voluntarias. Agradecemos su comprensión.</p>
             <h2>Garantía</h2>
             <p>En caso de presentar algún defecto o desgaste dentro de las primeras 24 horas posteriores al servicio deberá informar por teléfono y asistir al establecimiento para la valoración de nuestro personal técnico.</p>
             <p>En caso de aplicar la garantía, se aclara lo siguiente:</p>
